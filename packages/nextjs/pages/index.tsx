@@ -9,6 +9,7 @@ const Home: NextPage = () => {
       <MetaHeader
         title="Scaffold-ETH 2 App"
         description="Created with 🏗 scaffold-eth-2"
+        favicon="/favicon.png"
         ogTitle="Scaffold-ETH 2 App"
         ogDescription="Created with 🏗 scaffold-eth-2"
         ogImage="/thumbnail.jpg"
@@ -16,7 +17,6 @@ const Home: NextPage = () => {
         twitterTitle="Scaffold-ETH 2 App"
         twitterDescription="Created with 🏗 scaffold-eth-2"
         twitterImage={typeof window !== "undefined" ? `${window.location.origin}/thumbnail.jpg` : undefined}
-        favicon="/favicon.png"
       />
       <div className="flex items-center flex-col flex-grow pt-10">
         <div className="px-5">

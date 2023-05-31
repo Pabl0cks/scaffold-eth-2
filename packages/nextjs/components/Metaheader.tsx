@@ -2,21 +2,22 @@ import React from "react";
 import Head from "next/head";
 
 interface MetaHeaderProps {
-  title: string;
-  description: string;
-  ogTitle: string;
-  ogDescription: string;
-  ogImage: string;
-  twitterCard: string;
-  twitterTitle: string;
-  twitterDescription: string;
+  title?: string;
+  description?: string;
+  favicon?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  twitterCard?: string;
+  twitterTitle?: string;
+  twitterDescription?: string;
   twitterImage?: string;
-  favicon: string;
 }
 
 const MetaHeader: React.FC<MetaHeaderProps> = ({
   title,
   description,
+  favicon,
   ogTitle,
   ogDescription,
   ogImage,
@@ -24,20 +25,19 @@ const MetaHeader: React.FC<MetaHeaderProps> = ({
   twitterTitle,
   twitterDescription,
   twitterImage,
-  favicon,
 }) => {
   return (
     <Head>
-      <title>{title}</title>
-      <meta name="description" content={description} />
-      <meta property="og:title" content={ogTitle} />
-      <meta property="og:description" content={ogDescription} />
-      <meta property="og:image" content={ogImage} />
-      <meta name="twitter:card" content={twitterCard} />
-      <meta name="twitter:title" content={twitterTitle} />
-      <meta name="twitter:description" content={twitterDescription} />
-      <meta name="twitter:image" content={twitterImage} />
-      <link rel="icon" type="image/png" sizes="32x32" href={favicon} />
+      {title ? <title>{title}</title> : null}
+      {description && <meta name="description" content={description} />}
+      {favicon && <link rel="icon" type="image/png" sizes="32x32" href={favicon} />}
+      {ogTitle && <meta property="og:title" content={ogTitle} />}
+      {ogDescription && <meta property="og:description" content={ogDescription} />}
+      {ogImage && <meta property="og:image" content={ogImage} />}
+      {twitterCard && <meta name="twitter:card" content={twitterCard} />}
+      {twitterTitle && <meta name="twitter:title" content={twitterTitle} />}
+      {twitterDescription && <meta name="twitter:description" content={twitterDescription} />}
+      {twitterImage && <meta name="twitter:image" content={twitterImage} />}
     </Head>
   );
 };
